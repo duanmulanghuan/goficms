@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gofi.modules.dao.UserDao" >
+    
+    <!-- as前面是数据库名，oracle自动转大小写;后面是实体的属性，一知半解浪费半天时间，以作提示。 -->
+    <sql id="Column_List" >
+        id AS "id",
+        user_name AS "userName",
+        pass_word AS "passWord",
+        user_sex AS "userSex",
+        nick_name AS "nickName"
+    </sql>
+
+    <select id="getAll"  resultType="UserEntity"  >
+       SELECT 
+      <include refid="Column_List" />
+	   FROM GOFI_USERS
+    </select>
+
+</mapper>
